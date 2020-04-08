@@ -1,0 +1,21 @@
+{% include 'breadcrumb' %}
+
+<div class="page-header">
+  {% if current_tags %}    
+    <h2><a href="{{ blog.url }}">{% include 'multilang' with page_title %}</a> &raquo; {{ current_tags.first }}</h2>
+  {% else %}    
+    <h2>{% include 'multilang' with page_title %}</h2>
+  {% endif %}
+</div>
+
+<div class="row-bt">  
+
+  {% section 'sidebar-blog' %}
+  
+  <div class="blog-page block-row col-main col-lg-9">
+    {% section 'blog-template' %}  
+  </div>
+
+  
+</div>
+

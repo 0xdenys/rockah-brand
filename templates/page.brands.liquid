@@ -1,0 +1,18 @@
+
+<div class="bg-breadcrumb">
+  {% include 'breadcrumb' %}
+</div>
+
+{% comment %}
+  Regular page content goes here.
+{% endcomment %}
+
+<div class="rte brands-page">
+  <header class="page-header">
+    <h2>
+      {% include 'multilang' with page.title   %}
+    </h2>
+  </header>
+  
+  {% section 'page-brands' %}
+</div>

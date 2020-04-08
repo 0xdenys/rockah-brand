@@ -1,0 +1,44 @@
+{% if settings.enable_multiple_currencies %}
+{{ "//cdn.shopify.com/s/javascripts/currencies.js" | script_tag }}
+{{ "jquery.currencies.min.js" | asset_url | script_tag }}
+<script> 
+Currency.format = 'money_format';
+var shopCurrency = '{{ shop.currency }}';
+Currency.moneyFormats[shopCurrency].money_with_currency_format = {{ shop.money_with_currency_format | strip_html | json }};
+Currency.moneyFormats[shopCurrency].money_format = {{ shop.money_format | strip_html | json }};
+var cookieCurrency = Currency.cookie.read();
+$('span.money span.money').each(function() {
+	$(this).parent('span.money').removeClass('money');
+});
+
+$('span.money').each(function() {
+	$(this).attr('data-currency-{{ shop.currency }}', jQuery(this).html());
+});
+var currencySwitcher = jQuery('#currencies');
+  
+var button = jQuery('#currencies li');
+if (cookieCurrency == null || cookieCurrency == shopCurrency) {
+	Currency.currentCurrency = shopCurrency;
+}
+else {
+	Currency.currentCurrency = cookieCurrency;
+    currencySwitcher.val(cookieCurrency);    
+    Currency.convertAll(shopCurrency, cookieCurrency);	
+}
+$(currencySwitcher).find('.active').removeClass('active').parent().find('[data-currency=' + Currency.currentCurrency + ']').addClass('active');
+  button.click(function(e) {
+    e.preventDefault();
+    
+    if($(this).hasClass('active')) return false;
+    button.removeClass('active');
+    $(this).addClass('active');
+    var cur = $(this).attr('data-currency');
+    cur != Currency.currentCurrency && Currency.convertAll(Currency.currentCurrency, cur);
+  });
+
+  $('body').on('refreshCurrency', function() {
+    Currency.convertAll(shopCurrency, $("#currencies .active").attr('data-currency'));
+  });
+  
+</script>
+{% endif %}

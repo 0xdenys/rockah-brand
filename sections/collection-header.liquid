@@ -1,0 +1,96 @@
+<div class="cat-content">
+  <div class="cat-img lazyload">
+    {% if section.settings.dpl_img_cls %}
+    {% if section.settings.display_image_cls == 'image_category' %}
+    {% if section.settings.img_cat != blank %}
+    
+    <img src="{{ section.settings.img_cat | img_url :"master"}}" alt="{{ collection.title | split: '|' | first }}" 
+         class="lazyload"
+         data-src="{{ section.settings.img_cat | img_url :"master"  | canonical_url}}"
+         data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+         data-aspectratio="{{ section.settings.img_cat | img_url :"master"}}"
+         data-sizes="auto">
+    {% endif %}
+  
+   
+    {% endif %}
+    {% endif %}
+  </div>
+  <div class="wrapper {% if section.settings.display_image_cls == 'show_collection_image' %}collection-image{% endif %}">
+    {% if section.settings.show_heading_cls  %}
+    <h2>
+      {% include 'multilang' with collection.title %}       
+    </h2>
+    {% endif %}
+    {% if section.settings.show_des_cls  %}
+    {% if collection.description  != blank %}
+    <div class="cat-des">
+      {{ collection.description  }}
+    </div>
+    {% endif %}
+    {% endif  %}
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Collection Header",
+    "settings": [
+      {
+		"type" : "checkbox",
+		"id" : "dpl_img_cls",
+		"label" : "Display Image",
+		"default" : true
+	  },
+      {
+        "type" : "radio",
+        "id" : "display_image_cls",
+        "label" : "Show Image",       
+        "options": [
+          {
+            "value": "image_category",
+            "label": "Show Image Category"
+          },
+          {
+            "value": "show_collection_image",
+            "label": "Show Collection Image"
+          }
+        ],
+      	"default": "image_category"
+      },
+      {
+        "type": "image_picker",
+        "id": "img_cat",
+        "label": "Image Category"
+      },
+  	  {
+    		"type" : "text",
+    		"id" : "height_img",
+    		"label" : "Image height",
+    		"default" : "270px"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_heading_cls",
+        "label": "Show Collection Title",
+        "default": true
+      },
+  	  {
+        "type": "checkbox",
+        "id": "show_des_cls",
+        "label": "Show description",
+        "default": true
+      }
+      
+	]
+  }
+{% endschema %}
+
+<style>
+  .template-collection .cat-content .cat-img img{
+    max-height: {{ section.settings.height_img }};
+    object-fit: cover;
+    width:100%;
+  }
+</style>
