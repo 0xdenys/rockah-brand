@@ -134,7 +134,7 @@
     "hv_color_quick_view": "#ffffff",
     "color_wishlist": "#ffffff",
     "color_active_wishlist": "#d41d42",
-    "display_add_to_cart": false,
+    "display_add_to_cart": true,
     "display_add_to_cart_mb": false,
     "bg_add_to_cart": "#ffffff",
     "border_add_to_cart": "#ffffff",
@@ -1367,7 +1367,7 @@
       "collection-template": {
         "type": "collection-template",
         "settings": {
-          "collection_results_per_row": "3",
+          "collection_results_per_row": "2",
           "collection_results_per_page": "56"
         }
       },
