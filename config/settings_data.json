@@ -1439,8 +1439,8 @@
         ],
         "settings": {
           "coll_des": "Collections",
-          "list_collection_results_per_row": "3",
-          "style_categories": "style_little"
+          "list_collection_results_per_row": "2",
+          "style_categories": "style_show_all"
         }
       },
       "product-template": {

@@ -3,7 +3,7 @@
 {% else %}
   {% assign product_per_page = 15 %}
 {% endif %}
-    
+
 {% paginate collection.products by product_per_page %}
 {% include 'toolbar-list' %}
 
@@ -16,7 +16,7 @@
   	<p class="text-center" {% if settings.enable_multilang %}data-translate="collections.general.no_matches"{% endif %}>{{ 'collections.general.no_matches' | t }}</p>
   {% endif %}
 </div>
-  
+
 {% if paginate.pages > 1 %}
 <div class="padding collection-padding">
   {% include 'pagination-page' %}

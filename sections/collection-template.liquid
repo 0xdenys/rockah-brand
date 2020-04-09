@@ -19,7 +19,7 @@
 {% endcase %}
 
 <div class="product-collection products-grid row-bt">
-  {% if collection.products_count > 0 %}    
+  {% if collection.products_count > 0 %}
     {% for product in collection.products %}
     <div class="grid-item col-6 col-md-4 {{ grid_item_width }}">
       {% include 'product-grid-item' %}
@@ -38,7 +38,7 @@
 </div>
 {% endif %}
 
-{% endpaginate %}    
+{% endpaginate %}
 
 {% schema %}
   {
@@ -72,11 +72,10 @@
         "type": "text",
         "id": "collection_results_per_page",
         "label": "Products per page  (grid only) ",
-        "default": "12"
+        "default": "50"
       }
-     
-      
+
+
     ]
   }
 {% endschema %}
-
