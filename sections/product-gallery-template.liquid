@@ -59,8 +59,8 @@
       margin: 12px 0 23px;
     }
     {% endunless %}
-  } 
-    
+  }
+
   .video-open-popup a{
     color:{{section.settings.video_product_icon}};
   }
@@ -70,7 +70,7 @@
   .product-shop .group_item .sold_product {
     color:{{section.settings.sold_in_color}};
   }
-  
+
 </style>
 
 {% assign on_sale = false %}
@@ -106,7 +106,7 @@
 <div class="product product-detail-right">
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
   <meta itemprop="image" content="{{ product.featured_image.src | product_img_url: 'original' }}">
-  <div class="row has-sticky-product-img" >   
+  <div class="row has-sticky-product-img" >
      <div class="col-md-6 col-lg-12 col-xl-12 product-img-box {% if section.settings.product_gallery_style_moreview == 'left_vertical' %} left-vertical vertical{% else %} right-vertical vertical{% endif %}">
       <div class="contain-images-pr vertical-thumbnail-sticky">
 
@@ -115,14 +115,7 @@
             <div class="slider-nav{% if section.settings.product_gallery_style_moreview == 'left_vertical' %} left-vertical vertical{% else %} right-vertical vertical{% endif %}" id="more_view">
               {% for image in product.images %}
               <div class="item" href="#img-{{image.id}}">
-                <a href="javascript:void(0)" data-image="{{ image.src | product_img_url: 'original' }}">
-                  <img src="{{ image.src | product_img_url: '70x83' }}" alt="{{ image.alt | escape }}"  
-                       class="lazyload"
-                       data-src="{{ image.src | product_img_url: '70x83' }}"
-                       data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                       data-aspectratio="{{ image.src | product_img_url: '70x83' }}"
-                       data-sizes="auto">
-                </a>
+                  <img src="{{ image.src | product_img_url: '70x83' }}" alt="{{ image.alt | escape }}">
               </div>
               {% endfor %}
             </div>
@@ -132,10 +125,10 @@
           <div class="product-photo-container slider-for">
             {% for image in product.images %}
             <div class="thumb slick-active" id="img-{{image.id}}">
-              <a class="fancybox" rel="gallery1" href="{{ image | img_url: '600x' }}" data-fancybox="images"  {% if forloop.first == false %}id="img-{{forloop.index}}{%endif%}">
-                
+             
+
                 <img id="product-featured-image-{{image.id}}" src="{{ image | img_url: 'original' }}" alt="{{ image.alt | escape }}" data-zoom-image="{{ image.src | img_url: 'original' }}"/>
-                
+
                 {% if forloop.first == true %}
                 {% if on_sale or sold_out or label_new %}
                 <div class="product-label">
@@ -148,19 +141,19 @@
                   </strong>
                   {% endif %}
                   {% endfor %}
-                  
+
                   {% if on_sale %}
                   <strong class="label label-sale">
                     -{{ product.compare_at_price_min | minus: product.price | times: 100.0 | divided_by: product.compare_at_price_min | money_without_currency | times: 100 | replace: '.0', ''}}%
                   </strong>
                   {% endif %}
-                  
+
                   {% if sold_out %}
                   <strong class="sold-out label" {% if settings.enable_multilang %}data-translate="products.product.sold_out"{% endif %}>
                     {{ 'products.product.sold_out' | t }}
                   </strong>
                   {% endif %}
-                  
+
                 </div>
                 {% endif %}
 
@@ -171,14 +164,13 @@
                 {% endif %}
 
                 {% endif %}
-              </a>
-              
+
                {% if forloop.last == false %}
               <div class="icon-img" href="#img-{{forloop.index | plus: 1 }}" >
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 17 33" xml:space="preserve"><title>svg-arrow-next</title><g id="e4eb89a6-f885-43b8-9259-0d6b1516fab0"><g id="_x38_e584754-6657-46f1-a9d8-2cfd6623b552"><g><polygon points="14.9,14.5 0,0 0,3.7 11.1,14.5 13.2,16.5 11.1,18.5 0,29.3 0,33 14.9,18.5 17,16.5 "></polygon></g></g></g></svg>
               </div>
               {% endif %}
-                                       
+
             </div>
             {% endfor %}
           </div>
@@ -208,9 +200,9 @@
 
       </header>
 
-      {% if section.settings.display_product_reviews or section.settings.show_sold_in %} 
+      {% if section.settings.display_product_reviews or section.settings.show_sold_in %}
       <div class="group_item">
-        {% if section.settings.display_product_reviews %}       
+        {% if section.settings.display_product_reviews %}
         <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
         {% endif %}
 
@@ -282,7 +274,7 @@
           <label class="lang1">{{ section.settings.text_product_type | split: '|' | first }}</label>
           <label class="lang2">{{ section.settings.text_product_type | split: '|' | last }}</label>
           {% else %}
-          <label>{{ section.settings.text_product_type | split: '|' | first }}</label>              
+          <label>{{ section.settings.text_product_type | split: '|' | first }}</label>
           {% endif %}
           {% endif %}
           <span>{{ product.type }}</span>
@@ -312,7 +304,7 @@
       </div>
       {% endif %}
       {% if section.settings.display_countdown %}
-      {% if product.description contains '[countdown]' %}            
+      {% if product.description contains '[countdown]' %}
       {% assign count_down_first = product.description | split:'[/countdown]' | first %}
       {% assign count_down_final = count_down_first | split:'[countdown]' | last %}
       <div class="countdown">
@@ -349,7 +341,7 @@
         {% assign des = des | split:'[size chart]' | first %}
         {% endif %}
 
-        {% endif %} 
+        {% endif %}
 
         {% if section.settings.show_desc == 'short' %}
         {% if settings.enable_multilang and des contains '[lang2]' %}
@@ -372,7 +364,7 @@
         <div class="short-description">
           <div class="lang1">
             {{ des | split: '[lang2]' | first }}
-          </div>                
+          </div>
           <div class="lang2">
             {{ des | split: '[lang2]' | last }}
           </div>
@@ -380,17 +372,17 @@
         {% else %}
         <div class="short-description">
           {{ des | split: '[lang2]' | first }}
-        </div>                
+        </div>
         {% endif %}
         {% endif %}
 
         {% assign vendor =  product.vendor %}
 
         {% form 'product', product, id: "add-to-cart-form", data-vendor: vendor %}
-        <div id="product-variants">                                    
+        <div id="product-variants">
           {% assign variantCount = product.variants | size %}
-          {% if product.available %} 
-          {% if variantCount > 1 %} 
+          {% if product.available %}
+          {% if variantCount > 1 %}
           <select id="product-selectors" name="id" style="display:none">
             {% for variant in product.variants %}
             <option data-imge="{% if variant.image.size != blank %}{{ variant.image.src | product_img_url: '100x' }}{% else  %}{{ product.featured_image.src | product_img_url: '100x' }}{% endif %}" {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">
@@ -407,7 +399,7 @@
           {% else %}
           <input type="hidden" name="id" value="{{ product.variants[0].id }}" />
           {% endif %}
-          {% endif %}                                    
+          {% endif %}
         </div>
 
         <div class="prices">
@@ -425,7 +417,7 @@
           {% endif %}
         </div>
         <div class="chart-group{% if product.available %}{% else %} sold_out{% endif %}">
-          {% if product.available %} 
+          {% if product.available %}
             <label for="quantity" {% if settings.enable_multilang %}data-translate="cart.label.quantity"{%endif%}>
               {{ 'cart.label.quantity' | t }}
             </label>
@@ -445,7 +437,7 @@
           {% endif %}
         </div>
 
-        {% if section.settings.display_subtotal and product.available %} 
+        {% if section.settings.display_subtotal and product.available %}
         <div class="total-price">
           <label {% if settings.enable_multilang %}data-translate="cart.general.subtotal"{%endif%}>
             {{ 'cart.general.subtotal' | t }}:
@@ -454,15 +446,15 @@
         </div>
         {% endif %}
 
-        {% if product.available %} 
+        {% if product.available %}
         <div class="addToCart">
           <input type="submit" name="add" class="btn" {% if settings.enable_multilang %}data-translate="products.product.add_to_cart"{%endif%} id="product-add-to-cart" value="{{ 'products.product.add_to_cart' | t }}">
         </div>
 
-        {% else %} 
+        {% else %}
         <div class="addToCart">
-          <input type="submit" name="add" class="btn" {% if settings.enable_multilang %}data-translate="products.product.unavailable"{%endif%} id="product-add-to-cart" disabled value="{{ 'products.product.unavailable' | t }}">    
-        </div>      
+          <input type="submit" name="add" class="btn" {% if settings.enable_multilang %}data-translate="products.product.unavailable"{%endif%} id="product-add-to-cart" disabled value="{{ 'products.product.unavailable' | t }}">
+        </div>
         {% endif %}
 
         <div class="groups-btn">
@@ -475,9 +467,9 @@
         {% endform %}
       </div>
 
-      {% if section.settings.display_product_detail_tag %}         
+      {% if section.settings.display_product_detail_tag %}
       <div class="tags">
-        <strong class="icon-tags" {% if settings.enable_multilang %}data-translate="blogs.article.tags"{%endif%}>{{ 'blogs.article.tags' | t }}:</strong> 
+        <strong class="icon-tags" {% if settings.enable_multilang %}data-translate="blogs.article.tags"{%endif%}>{{ 'blogs.article.tags' | t }}:</strong>
         {% for tag in product.tags %}
         <span class="separator">/</span>
         <a href="/collections/all/?constraint={{ tag | handle }}" rel="tag">
@@ -510,11 +502,11 @@
         {% endif %}
 
         {% if section.settings.display_product_detail_share %}
-        {% include 'share' with product %}      
+        {% include 'share' with product %}
         {% endif %}
 
         {% if section.settings.dpl_seal_logo %}
-        {% include 'seal-logos' %}      
+        {% include 'seal-logos' %}
         {% endif %}
 
         <div class="product-bottom">
@@ -525,10 +517,10 @@
       </div>
       </div>
     </div>
-  </div>  
+  </div>
 </div>
 
-{% if section.settings.display_related_products %} 
+{% if section.settings.display_related_products %}
 {% include 'related-products' %}
 {% endif %}
 
@@ -554,88 +546,88 @@
 
       $(".number").val(newVal);
 
-      {% if section.settings.display_subtotal and product.available %} 
+      {% if section.settings.display_subtotal and product.available %}
       updatePricing();
       {% endif %}
     });
   });
-  
-  {% if section.settings.display_subtotal and product.available %} 
+
+  {% if section.settings.display_subtotal and product.available %}
   //update price when changing quantity
   function updatePricing() {
     //try pattern one before pattern 2
     var regex = /([0-9]+[.|,][0-9]+[.|,][0-9]+)/g;
     var unitPriceTextMatch = jQuery('.product .price').text().match(regex);
-   
+
     if (!unitPriceTextMatch) {
       regex = /([0-9]+[.|,][0-9]+)/g;
-      unitPriceTextMatch = jQuery('.product .price').text().match(regex);     
+      unitPriceTextMatch = jQuery('.product .price').text().match(regex);
     }
-   
+
     if (unitPriceTextMatch) {
-      var unitPriceText = unitPriceTextMatch[0];     
+      var unitPriceText = unitPriceTextMatch[0];
       var unitPrice = unitPriceText.replace(/[.|,]/g,'');
       var quantity = parseInt(jQuery('#quantity').val());
       var totalPrice = unitPrice * quantity;
 
       var totalPriceText = Shopify.formatMoney(totalPrice, window.money_format);
-      regex = /([0-9]+[.|,][0-9]+[.|,][0-9]+)/g;     
+      regex = /([0-9]+[.|,][0-9]+[.|,][0-9]+)/g;
       if (!totalPriceText.match(regex)) {
         regex = /([0-9]+[.|,][0-9]+)/g;
-      } 
+      }
       totalPriceText = totalPriceText.match(regex)[0];
 
-      var regInput = new RegExp(unitPriceText, "g"); 
+      var regInput = new RegExp(unitPriceText, "g");
       var totalPriceHtml = jQuery('.product .price').html().replace(regInput ,totalPriceText);
 
-      jQuery('.product .total-price span').html(totalPriceHtml);     
+      jQuery('.product .total-price span').html(totalPriceHtml);
     };
   };
 
   $('#quantity').on('change', updatePricing);
   {% endif %}
-  
+
   var selectCallback = function(variant, selector) {
     var addToCart = jQuery('#product-add-to-cart'),
         productPrice = jQuery('.product .price'),
         comparePrice = jQuery('.product .compare-price'),
       priceSaving = jQuery('.product .price-saving .price-save');
-  
+
     if (variant) {
       if (variant.available) {
         // We have a valid product variant, so enable the submit button
         addToCart.removeClass('disabled').removeAttr('disabled').val(window.inventory_text.add_to_cart);
       }
-      
+
       else {
         // Variant is sold out, disable the submit button
         addToCart.val(window.inventory_text.sold_out).addClass('disabled').attr('disabled', 'disabled');
       }
 
       // Regardless of stock, update the product price
-      productPrice.html(Shopify.formatMoney(variant.price, "{{ shop.money_format }}"));  
+      productPrice.html(Shopify.formatMoney(variant.price, "{{ shop.money_format }}"));
       var round = Math.round((1- ( variant.price/variant.compare_at_price))*100);
        priceSaving.html('-'+round+"%");
-      
-      
+
+
       // Also update and show the product's compare price if necessary
       if ( variant.compare_at_price > variant.price ) {
-        $('.product .price-saving').show(); 
+        $('.product .price-saving').show();
         productPrice.addClass("on-sale")
         comparePrice
           .html(Shopify.formatMoney(variant.compare_at_price, "{{ shop.money_format }}"))
           .show();
       }
-                
+
       else {
         comparePrice.hide();
         productPrice.removeClass("on-sale");
         $('.product .price-saving').hide();
       }
-    
+
       {% if settings.use_color_swatch %}
       var form = jQuery('#' + selector.domIdPrefix).closest('form');
-    
+
       for (var i=0,length=variant.options.length; i<length; i++) {
         var radioButton = form.find('.swatch[data-option-index="' + i + '"] :radio[value="' + variant.options[i] +'"]');
         if (radioButton.size()) {
@@ -643,16 +635,16 @@
         }
       }
       {% endif %}
-  
-      {% if section.settings.display_subtotal and product.available %}  
+
+      {% if section.settings.display_subtotal and product.available %}
       updatePricing();
       {% endif %}
-  
+
       {% if settings.enable_multiple_currencies %}
       Currency.convertAll('{{ shop.currency }}', jQuery('#currencies .active').attr('data-currency'), 'span.money', 'money_format');
       {% endif %}
     }
-  
+
     else {
       // The variant doesn't exist. Just a safeguard for errors, but disable the submit button anyway
       addToCart.val(window.inventory_text.unavailable).addClass('disabled').attr('disabled', 'disabled');
@@ -675,7 +667,7 @@
       }
     }
     {% endif %}
-  
+
     //update variant SKU
     {% if section.settings.display_product_sku %}
       if (variant) {
@@ -685,7 +677,7 @@
         $('.sku-product span').empty();
       }
     {% endif %}
-                                           
+
     /*begin variant image*/
     $(document).ready(function(){
       if (variant && variant.featured_image) {
@@ -702,7 +694,7 @@
             newImageSizedSrc = newImageSizedSrc.split('?')[0];
 
             if (grandSize == newImageSizedSrc) {
-              jQuery(this).closest('.item').trigger('click');              
+              jQuery(this).closest('.item').trigger('click');
               return false;
             }
           });
@@ -710,7 +702,7 @@
       }
     });
   };
-  
+
   $(function($) {
     {% if product.available and product.variants.size > 1 %}
         new Shopify.OptionSelectors('product-selectors', {
@@ -718,11 +710,11 @@
           onVariantSelected: selectCallback,
           enableHistoryState: true
         });
-    
+
         {% if settings.use_color_swatch and product.available and product.options.size > 1 %}
         Shopify.linkOptionSelectors({{ product | json }}, '.product');
         {% endif %}
-    
+
         {% if settings.use_color_swatch != true %}
         $('.selectize-input input').attr("disabled","disabled");
         {% endif %}
@@ -732,7 +724,7 @@
     {% if product.options.size == 1 and product.options.first != 'Title' %}
     $('.selector-wrapper:eq(0)').prepend('<label>{{ product.options.first }}</label>');
     {% elsif product.options.size > 1 %}
-    $('.selector-wrapper').append('<span class="icon-dropdown"><i class="fa fa-angle-down"></i></span>'); 
+    $('.selector-wrapper').append('<span class="icon-dropdown"><i class="fa fa-angle-down"></i></span>');
     {% endif %}
 
     // Hide selectors if we only have 1 variant and its title contains 'Default'.
@@ -741,18 +733,18 @@
     {% endif %}
 
     // Auto-select first available variant on page load. Otherwise the product looks sold out.
-  
 
-    
+
+
     {% if section.settings.display_product_reviews %}
     var reviewsTimeout = setInterval(function() {
       var sprBagde = $('.spr-badge');
-      
+
       if (sprBagde.length > 0) {
-        sprBagde.on('click', function(e) {                    
+        sprBagde.on('click', function(e) {
           e.preventDefault();
-          e.stopPropagation();                   
-          
+          e.stopPropagation();
+
           if($('.nav-tabs').length && $('.nav-tabs').is(':visible')) {
           $('html,body').animate({
               scrollTop: $('.panel-group').offset().top
@@ -760,7 +752,7 @@
 
             $('.nav-tabs > li > a[href="#collapse-tab2"]').trigger('click');
           }
-          
+
           else {
             $('html,body').animate({
               scrollTop: $('#accordion').offset().top
@@ -777,12 +769,12 @@
     },1000);
     {% endif %}
   });
-  
+
   {% if section.settings.show_sold_in %}
   var items = Array({{section.settings.item_prd}});
   var hours = Array({{section.settings.hours_prs}});
   var i = Math.floor(Math.random()*items.length);
-  
+
   var translateText = function(str) {
     if (!window.multi_lang || str.indexOf("|") < 0)
       return str;
@@ -795,13 +787,13 @@
         return textArr[0];
     };
   };
-  
+
   var itemPrdsText = translateText("{{ section.settings.item_prds }}");
   var itemHoursText = translateText("{{ section.settings.item_hours }}");
-  
-  $('.sold_product').text(items[i] + " " + itemPrdsText + " " + hours[i] + " " + itemHoursText);                          
+
+  $('.sold_product').text(items[i] + " " + itemPrdsText + " " + hours[i] + " " + itemHoursText);
   {% endif %}
-  
+
   {% if section.settings.dpl_customers_view %}
   setInterval(function(){
     var view = Array({{ section.settings.number_view }});
@@ -891,7 +883,7 @@
       "type" : "textarea",
       "id" : "hours_prs",
       "label" : "Hours",
-      "default" : "10,15,16,17,18,20,25,35" 
+      "default" : "10,15,16,17,18,20,25,35"
     },
     {
       "type" : "text",
@@ -1084,7 +1076,7 @@
       "type": "textarea",
       "id": "shipping_returns_content",
       "label": "Shipping & Returns HTML Code"
-    },  
+    },
     {
       "type": "checkbox",
       "id": "display_custom_tab",
