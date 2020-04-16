@@ -36,9 +36,7 @@
       <div class="quickview-featured-image product-photo-container slider-for">
         {% for image in product.images %}
         <div class="thumb">
-          <a class="fancybox" rel="gallery1" href="{{ image | product_img_url: '1200x'}}" data-fancybox="imagess">
-            <img id="product-featured-image-{{image.id}}" src="{{ image | product_img_url: 'original' }}" alt="{{ image.alt | escape }}" />
-          </a>
+            <img src="{{ image | product_img_url: 'original' }}" alt="{{ image.alt | escape }}" />
         </div>
         {% endfor %}
       </div>
@@ -53,7 +51,7 @@
 
         {% if on_sale %}
         <strong class="label label-sale" {% if settings.enable_multilang %}data-translate="products.product.sale"{% endif %}>
-          
+
               -{{ product.variants[0].compare_at_price | minus: product.variants[0].price | times: 100.0 | divided_by: product.variants[0].compare_at_price | money_without_currency | times: 100 | replace: '.0', ''}}%
         </strong>
         <br>
@@ -76,7 +74,7 @@
 
       {%  if product.description contains 'iframe' %}
         {% if settings.video_product %}
-          {% include 'video-product' %}  
+          {% include 'video-product' %}
         {% endif %}
       {% endif %}
 
@@ -85,7 +83,7 @@
         <span class="text">{{settings.click_to_zoom}}</span>
       </div>
     </div>
-    
+
     <ul class="slider-nav hl-list horizontal-tab" id="more_view">
       {% for image in product.images %}
       <li class="item">
@@ -96,7 +94,7 @@
       {% endfor %}
     </ul>
   </div>
-  
+
   <div class="col-md-6 col-lg-6 col-xl-6 product-shop">
     <div class="product-item" id="product-{{product.id}}">
 
@@ -125,7 +123,7 @@
           {% endif %}
           {% endif %}
 
-          <span>  
+          <span>
             {% if product.selected_or_first_available_variant.inventory_management %}
             {% assign first_inventory = product.selected_or_first_available_variant.inventory_quantity %}
             {% if first_inventory > 0 %}
@@ -174,12 +172,12 @@
           {% else %}
           <label>
             {{ settings.quickview_text_product_type | split: '|' | first }}
-          </label>              
+          </label>
           {% endif %}
           {% endif %}
          <span>{{ product.type }}</span>
         </div>
-        {% endif %}  
+        {% endif %}
 
         {% if settings.display_quickview_vendor %}
         <div class="vendor-product">
@@ -206,7 +204,7 @@
       {% endif %}
 
       {% if settings.display_quickview_countdown %}
-        {% if product.description contains '[countdown]' %}            
+        {% if product.description contains '[countdown]' %}
           {% assign count_down_first = product.description | split:'[/countdown]' | first %}
           {% assign count_down_final = count_down_first | split:'[countdown]' | last %}
           <div class="countdown">
@@ -264,10 +262,10 @@
       {% endif %}
 
       <form action="/cart/add" method="post" class="variants" data-id="product-actions-{{product.id}}">
-        <div id="product-variants">                                    
+        <div id="product-variants">
           {% assign variantCount = product.variants | size %}
-          {% if product.available %} 
-            {% if variantCount > 1 %} 
+          {% if product.available %}
+            {% if variantCount > 1 %}
               <select id="product-select-{{product.id}}" name="id" style="display:none">
                 {% for variant in product.variants %}
                 <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">
@@ -284,7 +282,7 @@
             {% else %}
             <input type="hidden" name="id" value="{{ product.variants[0].id }}" />
             {% endif %}
-          {% endif %}                                    
+          {% endif %}
         </div>
 
 
@@ -305,7 +303,7 @@
 
         <div class="chart-group">
           <label class="qty-label" for="quantity" {% if settings.enable_multilang %}data-translate="cart.label.quantity"{%endif%}>
-            {{ 'cart.label.quantity' | t }}: 
+            {{ 'cart.label.quantity' | t }}:
           </label>
 
           <div class="qty-group">
@@ -350,7 +348,7 @@
           {% include 'wishlist-product' %}
         </div>
 
-      </form>  
+      </form>
 
       {% if settings.dpl_customers_view %}
       <div id="customers_view">
@@ -369,17 +367,17 @@
       </div>
       {% endif %}
 
-      {% if settings.display_quickview_share %} 
+      {% if settings.display_quickview_share %}
         {% include 'share' with product %}
       {% endif %}
 
       {% if settings.dpl_quickview_seal_logo %}
-        {% include 'seal-logos' %}      
+        {% include 'seal-logos' %}
       {% endif %}
 
     </div>
   </div>
-  
+
   <a href="javascript:void(0)" class="close-window close" title="{{ 'cart.ajax_cart.close' | t }}">
     {% include 'icon-close' %}
   </a>
