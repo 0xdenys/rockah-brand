@@ -172,13 +172,7 @@
           {% if section.settings.video_product %}
           {% include 'video-product' %}
           {% endif %}
-          {% endif %}
-
-          <div class="click-to-zoom {% if section.settings.style_moreview == 'horizontal' %} horizontal{% else %} vertical{% endif %}">
-            {% include 'icon-zoom' %}
-            <span class="text">{{section.settings.click_to_zoom}}</span>
-          </div>
-
+          {% endif %}       
 		    </div>
         <div class="slider-nav{% if section.settings.style_moreview == 'horizontal' %} horizontal{% else %} vertical{% endif %}" id="more_view">
           {% for image in product.images %}
