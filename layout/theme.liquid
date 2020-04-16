@@ -60,11 +60,11 @@
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
   <h1 style="display: none">{{ page_title | split: '|' | first }}</h1>
   {% include 'scheme' %}
-  <div class="wrapper-container">	
+  <div class="wrapper-container">
     <div class="wrapper-header">
       {% section 'header' %}
       {% section 'navigation' %}
-      {% section 'homepage-promotion-bar' %}
+      <!--{% section 'homepage-promotion-bar' %}-->
     </div>
     <main class="main-content {% unless template contains 'index' or  template contains 'contact' %}container{% endunless %}" role="main">
       {{ content_for_layout }}
@@ -73,9 +73,9 @@
     {% if template contains 'index'%}
     {% section 'homepage-instagram' %}
     {% endif %}
-    
+
     {% if template contains 'index' %}
-    {% section 'brands' %} 
+    {% section 'brands' %}
     {% endif %}
 
     {% unless template contains 'index' %}
@@ -86,9 +86,9 @@
 
     <script src="//cdn.codeblackbelt.com/js/modules/cool-image-magnifier/main.min.js?shop=rockah-brand.myshopify.com"></script>
 
-    
 
-     
+
+
     {% if settings.enable_quick_view %}
     {% include 'quick-view-template' %}
     {% endif %}
@@ -99,11 +99,11 @@
       <a class="nav_up" href="#top" title="Back to top">
         <i class="fa fa-angle-up" aria-hidden="true"></i>
       </a>
-    </div> 
+    </div>
     {% endif %}
 
   </div>
-  
+
   {% unless template contains 'product' %}
     <div class="themevale_popup">
       {% section 'product-notification' %}

@@ -29,7 +29,7 @@
     "bg_body_repeat": "repeat",
     "bg_body_attachment": "scroll",
     "favicon": "shopify:\/\/shop_images\/bbe2716d00bf6fe7fefea39861519ada.jpg",
-    "body_font_size": "16",
+    "body_font_size": "22",
     "enable_opengraph": false,
     "image_share": "shopify:\/\/shop_images\/bbe2716d00bf6fe7fefea39861519ada.jpg",
     "enable_backtotop": true,
@@ -106,10 +106,10 @@
     "display_popup_social": true,
     "newssletter_success_text": "You have successfully subscribed!",
     "enable_wishlist": false,
-    "image_swap": false,
+    "image_swap": true,
     "show_vendor": false,
     "color_vendor": "#787878",
-    "display_product_reviews": false,
+    "display_product_reviews": true,
     "color_no_reviews": "#ebebec",
     "color_has_reviews": "#87724f",
     "display_item_swatch": true,
@@ -127,7 +127,7 @@
     "bg_new": "#1fade6",
     "sold_out_text": "#ffffff",
     "bg_sold_out": "#c9c9c9",
-    "color_price": "#ffffff",
+    "color_price": "#000000",
     "color_price_sale": "#e02858",
     "color_compare_price": "#787878",
     "color_quick_view": "#ffffff",
@@ -1321,7 +1321,7 @@
             "settings": {
               "enable": true,
               "title": "Featured Products",
-              "collection": "featured-collection",
+              "collection": "",
               "limit": "4"
             }
           },
@@ -1367,7 +1367,7 @@
       "collection-template": {
         "type": "collection-template",
         "settings": {
-          "collection_results_per_row": "3",
+          "collection_results_per_row": "2",
           "collection_results_per_page": "56"
         }
       },
@@ -1421,7 +1421,7 @@
           "1524047219537": {
             "type": "collection",
             "settings": {
-              "collection": "pendant"
+              "collection": ""
             }
           },
           "1524047236657": {
@@ -1439,8 +1439,8 @@
         ],
         "settings": {
           "coll_des": "Collections",
-          "list_collection_results_per_row": "3",
-          "style_categories": "style_little"
+          "list_collection_results_per_row": "2",
+          "style_categories": "style_show_all"
         }
       },
       "product-template": {
@@ -2168,7 +2168,7 @@
           "show_slider_featured_products": true,
           "space_on": 0,
           "space_below": 0,
-          "show_slider_featured_collection": "featured-collection",
+          "show_slider_featured_collection": "",
           "slider_featured_title": "Featured Products",
           "slider_featured_desc_text": "",
           "slider_featured_limit_all": "10",
@@ -2354,7 +2354,7 @@
             "settings": {
               "enable": true,
               "title": "Featured Products",
-              "collection": "featured-collection",
+              "collection": "",
               "limit": "5"
             }
           },
@@ -2701,38 +2701,6 @@
           "link_3": ""
         }
       },
-      "1583834675729": {
-        "type": "brands",
-        "disabled": true,
-        "blocks": {
-          "1583834735404": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/28.jpg",
-              "title": "Loremous",
-              "link": "shopify:\/\/collections\/braslets"
-            }
-          },
-          "1583834844210": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/26.jpg",
-              "title": "Loremous",
-              "link": "shopify:\/\/collections\/braslets"
-            }
-          }
-        },
-        "block_order": [
-          "1583834735404",
-          "1583834844210"
-        ],
-        "settings": {
-          "display_brands_slider": true,
-          "space_on": 0,
-          "space_below": 25,
-          "brands_title": "BRASLETS"
-        }
-      },
       "1584097914892": {
         "type": "slideshow",
         "blocks": {
@@ -2789,8 +2757,7 @@
       "1541383455903",
       "1541386254961",
       "1541141219661",
-      "1584097914892",
-      "1583834675729"
+      "1584097914892"
     ]
   },
   "presets": {
