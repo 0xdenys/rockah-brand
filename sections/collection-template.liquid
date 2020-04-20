@@ -21,9 +21,17 @@
 <div class="product-collection products-grid row-bt">
   {% if collection.products_count > 0 %}
     {% for product in collection.products %}
-    <div class="grid-item col-6 col-md-4 {{ grid_item_width }}">
-      {% include 'product-grid-item' %}
-    </div>
+    {% if product.id  == 4395094900832 %}
+      <div class="grid-item" style="width: 100%" id="grid-product-{{ product.id }}">
+        <div class="row-inner" style="max-width: 46%;">
+          {% include 'product-grid-item' %}
+        </div>
+      </div>
+    {% else %}
+      <div class="grid-item col-6 col-md-4 {{ grid_item_width }}" id="grid-product-{{ product.id }}">
+        {% include 'product-grid-item' %}
+      </div>
+    {% endif %}
     {% endfor %}
   {% else %}
   	<p class="text-center" style="width:100%;" {% if settings.enable_multilang %}data-translate="collections.general.no_matches"{% endif %}>
