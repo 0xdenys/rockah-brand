@@ -27,7 +27,7 @@
     "bg_body_position_x": "left",
     "bg_body_position_y": "top",
     "bg_body_repeat": "repeat",
-    "bg_body_attachment": "scroll",
+    "bg_body_attachment": "fixed",
     "favicon": "shopify:\/\/shop_images\/bbe2716d00bf6fe7fefea39861519ada.jpg",
     "body_font_size": "22",
     "enable_opengraph": false,
@@ -118,8 +118,8 @@
     "display_item_size": false,
     "color_size": "#ffffff",
     "hv_color_size": "#c7c7c7",
-    "product_name_text_transform": "none",
-    "color_title_product": "#191919",
+    "product_name_text_transform": "uppercase",
+    "color_title_product": "#000000",
     "color_title_product_hover": "#191919",
     "sale_text": "#ffffff",
     "bg_sale": "#e02858",
@@ -143,7 +143,7 @@
     "border_add_to_cart_hover": "#191919",
     "color_add_to_cart_hover": "#fff",
     "collection_infinite_scrolling": false,
-    "infinity_scroll_feature": true,
+    "infinity_scroll_feature": false,
     "enable_quick_view": true,
     "click_to_zoom": "Zoom the image with the mouse",
     "video_product": true,
@@ -152,7 +152,7 @@
     "quickview_text_availability": "Availability",
     "display_quickview_product_sku": false,
     "text_quickview_product_sku": "SKU:",
-    "display_quickview_product_type": false,
+    "display_quickview_product_type": true,
     "quickview_text_product_type": "Product Type",
     "display_quickview_vendor": false,
     "quickview_text_vendor": "Vendor",
@@ -2335,7 +2335,7 @@
             "settings": {
               "enable": true,
               "title": "Categories",
-              "style_categories": "style_little",
+              "style_categories": "style_show_all",
               "link_list": ""
             }
           },
@@ -2374,7 +2374,7 @@
           "1542696013370"
         ],
         "settings": {
-          "display_sidebar_detail_page": true,
+          "display_sidebar_detail_page": false,
           "show_sidebar": "left"
         }
       },
