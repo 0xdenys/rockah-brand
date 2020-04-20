@@ -125,9 +125,9 @@
       <div class="product-vendor">{{ product.vendor | link_to_vendor  }}</div>
       {% endif %}
 
-      <!--<a class="product-title" href="{{ product.url | within: collection }}">
+      <a class="product-title" href="{{ product.url | within: collection }}">
         {% include 'multilang' with product.title   %}
-      </a>-->
+      </a>
 
       {% if settings.display_product_reviews %}
       <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>

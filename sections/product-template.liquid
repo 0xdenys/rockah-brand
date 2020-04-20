@@ -122,7 +122,6 @@
   {% include 'next-prev-product' %}
   {% endif %}
 </div>
-
 <div class="product product-detail-right{% if section.settings.show_tab == 'vertical' %} tab-vertical{% elsif section.settings.show_tab == 'horizontal' %} tab-horizontal{% endif %}">
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
   <meta itemprop="image" content="{{ product.featured_image.src | product_img_url: 'original' }}">
@@ -172,7 +171,7 @@
           {% if section.settings.video_product %}
           {% include 'video-product' %}
           {% endif %}
-          {% endif %}       
+          {% endif %}
 		    </div>
         <div class="slider-nav{% if section.settings.style_moreview == 'horizontal' %} horizontal{% else %} vertical{% endif %}" id="more_view">
           {% for image in product.images %}
