@@ -70,8 +70,31 @@
           <input class="tric" id="swatch-{{ option_index }}-{{ value | handle }}" type="radio" name="option-{{ option_index }}" value="{{ value | escape }}"{% if forloop.first %} checked{% endif %} {% unless variant.available %}disabled{% endunless %} />
           {% if is_color %}
           {% if settings.use_variant_swatch %}
+          	
+          {% assign textValue = value | split: ' ' | last | handle  %}
           
-          <label for="swatch-{{ option_index }}-{{ value | handle }}"{% if variant.image.src != blank %} class="has-image" style="background-image: url({{ variant.image.src | product_img_url: '34x34' }})"{% else %}style="background-color: {{ value | split: ' ' | last | handle }};background-image: url({{ value | handle | append: '.' | append: file_extension | file_url }});"{% endif %}>
+          {% if textValue == 'lavender' %}
+				 {% assign textValue = '#c4b2c8' %}          	
+          {% endif %}
+          
+          {% if textValue == 'blue' %}
+				 {% assign textValue = '#6f9cba' %}          	
+          {% endif %}
+          
+          {% if textValue == 'terracotta' %}
+				 {% assign textValue = '#b96647' %}          	
+          {% endif %}
+          
+          {% if textValue == 'grey' %}
+				 {% assign textValue = '#afaaae' %}          	
+          {% endif %}
+          
+          {% if textValue == 'yellow' %}
+				 {% assign textValue = '#dbd757' %}          	
+          {% endif %}
+          
+         
+          <label  for="swatch-{{ option_index }}-{{ value | handle }}"{% if variant.image.src != blank %} class="has-image" style="background-image: url({{ variant.image.src | product_img_url: '34x34' }})"{% else %}style="background-color: {{ textValue }};background-image: url({{ value | handle | append: '.' | append: file_extension | file_url }});"{% endif %}>
           {%else%}
           <label for="swatch-{{ option_index }}-{{ value | handle }}" style="background-color: {{ value | split: ' ' | last | handle }};background-image: url({{ value | handle | append: '.' | append: file_extension | file_url }});">
           {% endif %}

@@ -15,9 +15,10 @@
   {% if option_count < 4 %}
   
   {%- assign variantimg = variant.image.src | product_img_url: 'large'  -%}
+
   <li data-color="{{color |strip }}" class="tooltip_swatch{% if option_count == 3 %} hide-mb{% endif %}">
     <span class="tooltiptext">{{color |strip }}</span>
-    <label class="{{color |strip }} {% if variant.image != null %} has-image{% endif %}" {% if variant.image != null %} data-img="{{ variantimg }}"{% else %}style="background-color: {{ color | split: ' ' | last | handle }};background-image: url({{ text | append: '.png' | file_url }});" {% endif %}>
+    <label class="{{color |strip }} {% if variant.image != null %} has-image{% endif %}" {% if variant.image != null %} data-img="{{ variantimg }}"{% else %}style="background-color: {{ color | split: ' ' | last | handle}};background-image: url({{ text | append: '.png' | file_url }});" {% endif %}>
       {% if variant.image != null %}
       <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
            class="lazyload"
