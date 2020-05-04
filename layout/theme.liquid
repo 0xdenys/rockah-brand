@@ -84,7 +84,8 @@
 
     {% section 'footer' %}
 
-    <script src="//cdn.codeblackbelt.com/js/modules/cool-image-magnifier/main.min.js?shop=rockah-brand.myshopify.com"></script>
+    <!--<script src="//cdn.codeblackbelt.com/js/modules/cool-image-magnifier/main.min.js?shop=rockah-brand.myshopify.com"></script>-->
+    {{ 'main.min.js' | asset_url | script_tag }}
 
 
 

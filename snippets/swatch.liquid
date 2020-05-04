@@ -71,32 +71,29 @@
           {% if is_color %}
           {% if settings.use_variant_swatch %}
           	
-          {% assign textValue = value | split: ' ' | last | handle  %}
+           	
+          {% assign colorCode = value | split: ' ' | last | handle  %}       
           
-          {% if textValue == 'lavender' %}
-				 {% assign textValue = '#c4b2c8' %}          	
+          {% if colorCode == 'blue' %}
+				 {% assign colorCode = '#7ecbe8' %}          	
           {% endif %}
           
-          {% if textValue == 'blue' %}
-				 {% assign textValue = '#6f9cba' %}          	
+          {% if colorCode == 'lilas' %}
+				 {% assign colorCode = '#d2aac8' %}          	
           {% endif %}
           
-          {% if textValue == 'terracotta' %}
-				 {% assign textValue = '#b96647' %}          	
+          {% if colorCode == 'grey' %}
+				 {% assign colorCode = '#b4c7d3' %}          	
           {% endif %}
           
-          {% if textValue == 'grey' %}
-				 {% assign textValue = '#afaaae' %}          	
-          {% endif %}
-          
-          {% if textValue == 'yellow' %}
-				 {% assign textValue = '#dbd757' %}          	
+          {% if colorCode == 'yellow' %}
+				 {% assign colorCode = '#f2e84c' %}          	
           {% endif %}
           
          
-          <label  for="swatch-{{ option_index }}-{{ value | handle }}"{% if variant.image.src != blank %} class="has-image" style="background-image: url({{ variant.image.src | product_img_url: '34x34' }})"{% else %}style="background-color: {{ textValue }};background-image: url({{ value | handle | append: '.' | append: file_extension | file_url }});"{% endif %}>
+          <label  for="swatch-{{ option_index }}-{{ value | handle }}"{% if variant.image.src != blank %} class="has-image" style="background-image: url({{ variant.image.src | product_img_url: '34x34' }})"{% else %}style="background-color: {{ colorCode }};background-image: url({{ value | handle | append: '.' | append: file_extension | file_url }});"{% endif %}>
           {%else%}
-          <label for="swatch-{{ option_index }}-{{ value | handle }}" style="background-color: {{ value | split: ' ' | last | handle }};background-image: url({{ value | handle | append: '.' | append: file_extension | file_url }});">
+          <label for="swatch-{{ option_index }}-{{ value | handle }}" style="background-color: {{ colorCode | split: ' ' | last | handle }};background-image: url({{ value | handle | append: '.' | append: file_extension | file_url }});">
           {% endif %}
             
             <span class="crossed-out"> </span>

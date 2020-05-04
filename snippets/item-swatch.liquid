@@ -15,10 +15,27 @@
   {% if option_count < 4 %}
   
   {%- assign variantimg = variant.image.src | product_img_url: 'large'  -%}
-
+  {% assign colorCode = color | split: ' ' | last | handle  %}       
+          
+          {% if colorCode == 'blue' %}
+				 {% assign colorCode = '#7ecbe8' %}          	
+          {% endif %}
+          
+          {% if colorCode == 'lilas' %}
+				 {% assign colorCode = '#d2aac8' %}          	
+          {% endif %}
+          
+          {% if colorCode == 'grey' %}
+				 {% assign colorCode = '#b4c7d3' %}          	
+          {% endif %}
+          
+          {% if colorCode == 'yellow' %}
+				 {% assign colorCode = '#f2e84c' %}          	
+          {% endif %}
+          	
   <li data-color="{{color |strip }}" class="tooltip_swatch{% if option_count == 3 %} hide-mb{% endif %}">
     <span class="tooltiptext">{{color |strip }}</span>
-    <label class="{{color |strip }} {% if variant.image != null %} has-image{% endif %}" {% if variant.image != null %} data-img="{{ variantimg }}"{% else %}style="background-color: {{ color | split: ' ' | last | handle}};background-image: url({{ text | append: '.png' | file_url }});" {% endif %}>
+    <label data-debug="{{colorCode}}" class="{{color |strip }} {% if variant.image != null %} has-image{% endif %}" {% if variant.image != null %} data-img="{{ variantimg }}"{% else %}style="background-color: {{ colorCode }};background-image: url({{ text | append: '.png' | file_url }});" {% endif %}>
       {% if variant.image != null %}
       <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
            class="lazyload"
