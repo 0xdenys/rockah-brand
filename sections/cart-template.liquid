@@ -43,22 +43,24 @@
                 {% include 'multilang' with item.product.title %}
               </a>
 
-              {% if item.properties.Style %}
-              <div class="size">                                                              
-                	{{ "letter: " | capitalize }}                
-					{{ item.properties.Style}}                                
-              </div>
-              {% endif %}                   
-              
               <div class="size">  
                 {% if item.product.variants.size != 0 %}
-                {{ item.product.variant}}
                 {% unless item.variant.title contains 'Default' %}
-                 {{ "color: " | capitalize }} {{ item.variant.title }}
+                 {{ item.variant.title }}
                 {% endunless %}
                 {% endif %}
               </div>
-              
+		 	  
+              <div class="style">  
+                {% if item.properties.Style != 0 %}                
+                 {{ item.properties.Style }}                
+                {% endif %}                   
+              </div>
+              <div class="product-vendor">
+                {{ item.vendor }}
+              </div>
+             
+
               {% comment %}
               <p class="price">{{ item.price | money }}</p>
               {% endcomment %}

@@ -47,7 +47,7 @@ $sold_out_text : #ffffff;
 $bg_sold_out : #c9c9c9;
 $bg_custom_label : #2e3031;
 $custom_label_text : #ffffff;
-$color_price: #000000;
+$color_price: #ffffff;
 $color_price_sale: #e02858;
 $color_compare_price: #787878;
 $color_quick_view: #ffffff;
@@ -1000,6 +1000,7 @@ table {
     @include button_disabled();
   }
 }
+
 
 
 .container-padd40:after {
@@ -3475,11 +3476,11 @@ table {
 
     .price-box{
       margin-bottom: 16px;
-      text-align: center;
+      text-align: left;
 
       span{
         font-size: 14px;
-        font-weight: 900;
+        font-weight: 500;
         display: inline-block;
         vertical-align: middle;
         letter-spacing: 0;
@@ -5299,7 +5300,7 @@ table {
       }
 
       .price-box {
-        font-weight: 900;
+        font-weight: 500;
 
         .regular-product {
           color: $color_price;
@@ -6286,7 +6287,7 @@ table {
 
   .product-vendor,
   .size {
-    color: #191919;
+    color: #969696;
     font-family: $font_1;
     font-size: 12px;
     font-weight: 400;
@@ -9532,15 +9533,4 @@ table {
     @include align-items(center);
     @include justify-content(center);
   }
-}
-
-.product-list .product-item .product-bottom .product-title{
-	font-size: 13px;
-}
-.product-item .product-bottom .price-box span{
-	font-weight: bold;
-}
-
-.price-box{
-	color: #000000;
 }
