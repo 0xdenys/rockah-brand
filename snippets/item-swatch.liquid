@@ -16,9 +16,32 @@
   
   {%- assign variantimg = variant.image.src | product_img_url: 'large'  -%}
 
+  
+    {% assign textValue = color | split: ' ' | last | handle  %}
+          
+          {% if textValue == 'lilas' %}
+				 {% assign textValue = '#d2aac8' %}          	
+          {% endif %}
+          
+          {% if textValue == 'blue' %}
+				 {% assign textValue = '#7ecbe8' %}          	
+          {% endif %}
+          
+          {% if textValue == 'terracotta' %}
+				 {% assign textValue = '#b96647' %}          	
+          {% endif %}
+          
+          {% if textValue == 'grey' %}
+				 {% assign textValue = '#b4c7d3' %}          	
+          {% endif %}
+          
+          {% if textValue == 'yellow' %}
+				 {% assign textValue = '#f2e84c' %}          	
+          {% endif %}
+  
   <li data-color="{{color |strip }}" class="tooltip_swatch{% if option_count == 3 %} hide-mb{% endif %}">
     <span class="tooltiptext">{{color |strip }}</span>
-    <label class="{{color |strip }} {% if variant.image != null %} has-image{% endif %}" {% if variant.image != null %} data-img="{{ variantimg }}"{% else %}style="background-color: {{ color | split: ' ' | last | handle}};background-image: url({{ text | append: '.png' | file_url }});" {% endif %}>
+    <label class="{{color |strip }} {% if variant.image != null %} has-image{% endif %}" {% if variant.image != null %} data-img="{{ variantimg }}"{% else %}style="background-color: {{ textValue }};background-image: url({{ text | append: '.png' | file_url }});" {% endif %}>
       {% if variant.image != null %}
       <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
            class="lazyload"
