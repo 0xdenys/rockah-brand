@@ -118,7 +118,7 @@
     "display_item_size": false,
     "color_size": "#ffffff",
     "hv_color_size": "#c7c7c7",
-    "product_name_text_transform": "uppercase",
+    "product_name_text_transform": "none",
     "color_title_product": "#000000",
     "color_title_product_hover": "#191919",
     "sale_text": "#000000",
