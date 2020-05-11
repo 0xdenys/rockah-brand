@@ -166,7 +166,7 @@
     "title_view": "customers are viewing this product",
     "number_view": "283, 100, 59, 11, 14, 185, 193, 165, 50, 38, 99, 112, 46, 10, 125, 200, 250, 18",
     "display_size_chart": false,
-    "type_size_chart": "product_title",
+    "type_size_chart": "default",
     "custom_size_chart_title": "Size Chart | Größentabelle",
     "custom_size_chart": "",
     "dpl_seal_logo_1": false,

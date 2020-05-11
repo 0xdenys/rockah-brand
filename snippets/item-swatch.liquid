@@ -38,6 +38,18 @@
           {% if textValue == 'yellow' %}
 				 {% assign textValue = '#f2e84c' %}          	
           {% endif %}
+          {% if textValue == 'champagne' %}
+          	{% assign textValue = '#b2af82' %}          	
+          {% endif %}
+  		  {% if textValue == 'fuchsia' %}
+          		{% assign textValue = '#c799b5' %}          	
+          {% endif %}
+  		  {% if textValue == 'mint' %}
+          		{% assign textValue = '#7e9798' %}          	
+          {% endif %}
+  	      {% if textValue == 'oliva' %}
+          		{% assign textValue = '#7c8746' %}          	
+          {% endif %}
   
   <li data-color="{{color |strip }}" class="tooltip_swatch{% if option_count == 3 %} hide-mb{% endif %}">
     <span class="tooltiptext">{{color |strip }}</span>
