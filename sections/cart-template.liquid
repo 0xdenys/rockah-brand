@@ -31,10 +31,14 @@
         </div>
 
         <ul class="cart-list">
-          {% for item in cart.items %}
+          {% for item in cart.items %}          
           <li>
             <a class="product-img" href="{{ item.url | within: collections.all }}">
-              <img src="{{ item | img_url: '150x' }}"  alt="{{ item.title | escape }}" />
+              {% if item.id  == 32174070497376 or item.id  == 32174070530144 or item.id  == 32174070562912	or item.id  == 32174070595680 or item.id  == 32174070628448%}
+              	<img src="https://cdn.shopify.com/s/files/1/0235/4246/4608/products/64-Recovered_256x304.jpg?v=1588338934"  alt="{{ item.title | escape }}" />
+              {% else %}
+              	<img src="{{ item | img_url: '150x' }}"  alt="{{ item.title | escape }}" />
+              {% endif %}
             </a>
 
             <div class="product-details">
@@ -44,18 +48,25 @@
               </a>
 
               <div class="size">  
+                {% if item.properties.Style %}                
+                  {{"Your Letter: "}}{{ item.properties.Style }}                
+                {% endif %}                   
+              </div>
+              
+              <div class="size">  
                 {% if item.product.variants.size != 0 %}
                 {% unless item.variant.title contains 'Default' %}
-                 {{ item.variant.title }}
+                {% if item.id  == 32174070497376 or item.id  == 32174070530144 or item.id  == 32174070562912	or item.id  == 32174070595680 or item.id  == 32174070628448%}
+              	{{"Silk scarf: "}}{{ item.variant.title }}
+              {% else %}
+              	{{ item.variant.title }}
+              {% endif %} 
+                
                 {% endunless %}
                 {% endif %}
               </div>
 		 	  
-              <div class="size">  
-                {% if item.properties.Style != 0 %}                
-                 {{ item.properties.Style }}                
-                {% endif %}                   
-              </div>
+             
               <div class="product-vendor">
                 {{ item.vendor }}
               </div>

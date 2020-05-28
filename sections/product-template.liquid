@@ -128,11 +128,12 @@
   <div class="row {% if section.settings.show_tab == 'vertical' %}has-sticky-product-img{% endif %}">
     <div class="col-md-6 col-lg-12 col-xl-12 product-img-box{% if settings.product_image_border%} grid-item-border{% endif %}{% if section.settings.style_moreview == 'horizontal' %} horizontal{% else %} vertical{% endif %}">
       <div class="contain-images-pr" {% if section.settings.show_tab == 'vertical' %}data-sticky-product-img{% endif %}>
-        <div class="debug productView-nav-wrapper {% if section.settings.style_moreview == 'horizontal' %} horizontal{% else %} vertical{% endif %}">
+        <div class="productView-nav-wrapper {% if section.settings.style_moreview == 'horizontal' %} horizontal{% else %} vertical{% endif %}">
           <div class="product-photo-container slider-for">
             {% for image in product.images %}
             <div class="thumb">
-                <img src="{{ image | img_url: 'original' }}" alt="{{ image.alt | escape }}">
+                <img class="image-zoom" src="{{ image | img_url: 'original' }}" alt="{{ image.alt | escape }}" data-zoom="{{ image.src | product_img_url: '1024x1024', scale : 2 }}">
+               <div class="image-details"></div>
             </div>
             {% endfor %}
           </div>
@@ -387,7 +388,7 @@
         {% form 'product', product, id: "add-to-cart-form", data-vendor: vendor %}
         {% if product.id  == 4384153796704 %}
           <p class="line-item-property__style" style="margin:20px 0;">
-            <label>Letter <em style="color:#f1152f;">*</em></label><br>
+            <label>Choose your letter <em style="color:#f1152f;">*</em></label><br>
               <select required class="required" id="select-style" name="properties[Style]">
                 <option value="A">A</option>
                 <option value="B">B</option>
